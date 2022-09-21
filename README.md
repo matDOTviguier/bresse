@@ -2,7 +2,7 @@
 Bresse is a Python 3 parametric endpoint service checker that runs ontop Debian Linux. It could run whereever Python 3 (and some dependencies are met) runs well and from where each endpoint under test is reachable. It has just been validated under certain circumstances. Debian 11 and ipv4 network are circumstances.
 
 ## Why in the world do you need another endpoint tester ?
-In our production system, we have to be waked up if a system is down while it should be up.
+In our production system, we have (humans) to be waked up if a system is down while it should be up, and we really all love to sleep/tinker clockwise.
 
 
 ## How it works ?
@@ -14,10 +14,15 @@ Bresse sends an email to a monitoring mailbox at each run. The TO adress SHOULD 
 
 BresseN+1 can check the age of the last mail received at monitor@domain.com adressed to bresse[1,N]+monitor@domain.com. If the age is larger than the syncrhonous run rythm plus an opertaionnal margin composed by the resultant of the sum of granular timeout of each test and the reasonable time reserved for the mail path.
 ## Production ready ?
-Yes.
-In our production system, we run at least a bresse checker on a computer linked by :
-  - free
-  - orange
-  - free pro
-  - Bouygues Telecom
-  - SFR
+Yes. Note that we are talking about endpoints. We are glad to test from ou final customer point of vue.
+
+In our production system, we run at least a bresse checker (5 min cycle) on :
+  - French mainstream providers
+    - free
+    - orange
+    - Bouygues Telecom
+    - SFR
+  - European cloud provider
+    - Scaleway
+    - OVH
+    - Azure EU
