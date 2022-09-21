@@ -26,3 +26,24 @@ In our production system, we run at least a bresse checker (5 min cycle) on :
     - Scaleway
     - OVH
     - Azure EU
+
+## What ... endpoint ?
+Say we have a mssql server. What do we want our service to serve ?
+Anoter question. What is the best test to run ?
+  - parametric way
+    - server ip (or ns)
+    - port
+    - user
+    - password
+    - database
+    - request
+    - assertion
+
+If the _server_ on the _port_, once _user_ is logged on via the _password_ on the _database_, can handle the _request_ and replies with _assertion_, so, we just have to test if _assertion_ ... asserts. It is the endpoint way to test our service. In our production system, the former client uses the same connection. If a problems occurs with a final user connected by a provider under validation, and the above test asserts well, we can think that the server cannot be faulty.
+
+In the same way, if we have to monitor and eshop. Just take a command on an item, and cancel it. Test it over and over. The eshop works well while the test asserts well.
+
+Endpoint testing doesn't help in case of failure.
+
+## In case of failure ?
+Our system is connected via Microsoft 365. And yes, Microsoft 365 is tested via our _bresse_ system too.
