@@ -50,4 +50,4 @@ Our system is connected via Microsoft 365. And yes, Microsoft 365 is tested via 
 Emails are checked by a Power Automate flux. If an email contains string ".NOK" (ie MSSQL1_Service.NOK), the power automate send an approbation to technicians. While the approbation is not overtaken by a technician, Power Automate chat bot spams the Teams on computers and smartphones. The flux runs on a time basis. If that technician is working, if that customer pay for the 365/24/7, if ... whatever you want, it a time basis.
 
 ## In case of Microsoft 365 (too big to)fail ?
-The positive logic push our solution 
+It is easy to monitoring a synchronous system. It just needs another __asyncrhonous__ notifiyng service that launches alerts. We have chosen [ntfy](https://ntfy.sh/).
