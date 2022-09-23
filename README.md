@@ -1,8 +1,8 @@
 # Bresse
-Bresse is a Python 3 _parametric_ endpoint service client (checker).
+Bresse is a Python 3 _parametric_ and _synchronous cycling_ endpoint service client (checker).
 
 ## How it works ?
-Bresse is a Python 3 scripts called via a syncrhonous (cron) way. It acts in postitive logic as a standard client. While beeing an endpoint test for many services it MUST replies OK _xor_ NOK on each service tested at each run. It MUST send DRYRUN.OK on a dry run at each start and as the always first test in order to validate cyclic rythm of runs.
+Bresse is a Python 3 scripts called via a syncrhonous (cron) way. It acts in postitive logic as a standard client. While beeing an endpoint test for many services it MUST replies OK _xor_ NOK on each service tested at each run. It MUST send DRYRUN.OK on a dry run at each start and as the always first test in order to validate cyclic rythm of runs. Each endpoint has to send a cyclic mail that contains NOK in front of a failed test. Connected via Microsoft 365 solution stack (at least Exchange/Outlook/Power Automate) it can act as a positive logic supervisor.
 
 Bresse cannot works alone. It MUST be integrated into a cluster of computers. Each computer has to be connected via a different netowk provider in order to test endpoints in a manner that services are reachable from each provider.
 
@@ -20,3 +20,9 @@ Your service name cannot contains "NOK". You can use a Power Automate to create 
   - Send an approbation via Teams to all techniciens when the latest email received in the monitor mailbox is a aged over a certain trigger. This tells that a bresse endpoint fails.
   - Send an approbation via Teams to all technicians when the latest mail contains the "NOK" string.
 - Send a cyclic message via the Power Automate bot into your working fay/hours, or in the contracted supervision clockwise while the approbation is not taken.
+
+## Examples :
+
+- When an email is aged over a certain time (say 5 minutes), it tells that and endpoint checker is in trouble.
+- When an email arrives containinf the "NOK" string, is telles that the service checked has a problem ... to pass a certain endpoint client simulation.
+- When the latest email aged under a certain time doesn't contains "NOK", pass and loop to the next iteration.
